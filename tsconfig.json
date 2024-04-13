@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["dom", "esnext"],
+    "jsx": "react-jsx",
+
+    /* Modules */
+    "module": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "strict": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    // "isolatedModules": true,
+
+    "incremental": true
+  },
+  "include": ["src/**/*", "gatsby-node.ts", "gatsby-config.ts", "./plugins/**/*", "./src/typings/*.d.ts", "plugins"],
+  "exclude": ["public", "node_modules"]
+}

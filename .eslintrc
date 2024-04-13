@@ -1,0 +1,47 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "plugins": ["react", "@typescript-eslint/eslint-plugin"],
+  "globals": {
+    "__PATH_PREFIX__": true
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "16.8" // 告诉eslint-plugin-react自动检测要使用的React版本
+    }
+  },
+
+  "rules": {
+    "prettier/prettier": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": 0,
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "jsx-a11y/accessible-emoji": 0,
+    "jsx-a11y/iframe-has-title": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "prefer-const": 1,
+    "import/no-unresolved": 1,
+    "no-const-assign": 1,
+    "react/display-name": 0,
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0
+    // "import/order":[]
+  }
+}
