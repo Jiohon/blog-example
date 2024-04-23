@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'antd-style'
 export const GlobalScopeStyle = createGlobalStyle`
   @font-face {
     font-family: 'SF Mono';
-    src: url('https://raw.githubusercontent.com/hushed3/blog-example/master/static/fonts/SFMono/SFMono.woff2') format('woff2'),
-    url('https://raw.githubusercontent.com/hushed3/blog-example/master/static/fonts/SFMono/SFMono.woff2') format('woff');
+    src: url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/SFMono/SFMono.woff2') format('woff2'),
+    url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/SFMono/SFMono.woff2') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -12,8 +12,8 @@ export const GlobalScopeStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Prisma';
-    src: url('https://raw.githubusercontent.com/hushed3/blog-example/master/static/fonts/Prisma/Prisma.woff2') format('woff2'),
-    url('https://raw.githubusercontent.com/hushed3/blog-example/master/static/fonts/Prisma/Prisma.woff2') format('woff');
+    src: url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Prisma/Prisma.woff2') format('woff2'),
+    url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Prisma/Prisma.woff2') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -21,8 +21,8 @@ export const GlobalScopeStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Pacifico';
-    src: url('https://raw.githubusercontent.com/hushed3/blog-example/master/static/fonts/Pacifico/Pacifico.woff2') format('woff2'),
-    url('https://raw.githubusercontent.com/hushed3/blog-example/master/static/fonts/Pacifico/Pacifico.woff') format('woff');
+    src: url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Pacifico/Pacifico.woff2') format('woff2'),
+    url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Pacifico/Pacifico.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

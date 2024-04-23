@@ -15,7 +15,7 @@ const Comment: React.FC<CommentProps> = () => {
     <div className={styles.comment}>
       <Giscus
         id="comments"
-        repo="hushed3/blog-example"
+        repo="jiohon/blog-example"
         repoId="R_kgDOLr6i6g"
         category="Announcements"
         categoryId="DIC_kwDOLr6i6s4Cek0U"

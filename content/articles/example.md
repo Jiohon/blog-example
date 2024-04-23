@@ -63,7 +63,7 @@ createPage({
 
 - 文章路径
 
-例如该片文章解析为：[https://hushed3.github.io/blog-example/markdown](https://hushed3.github.io/blog-example/markdown)
+例如该片文章解析为：[https://jiohon.github.io/blog-example/markdown](https://jiohon.github.io/blog-example/markdown)
 
 **icon**
 

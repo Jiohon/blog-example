@@ -3,7 +3,7 @@
   "description": "John's personal website.",
   "author": "John",
   "private": true,
-  "homepage": "https://hushed3.github.io/blog-example",
+  "homepage": "https://jiohon.github.io/blog-example",
   "version": "1.0.0",
   "license": "MIT",
   "keywords": [
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hushed3/blog-example"
+    "url": "https://github.com/jiohon/blog-example"
   },
   "scripts": {
     "dev": "gatsby clean && gatsby develop -H 0.0.0.0 -p 8008",
