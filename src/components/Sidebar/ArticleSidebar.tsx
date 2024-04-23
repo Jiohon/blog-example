@@ -2,16 +2,17 @@ import { Anchor, Card } from 'antd'
 import { useStyles } from './style'
 
 import { AnchorLinkItemProps } from 'antd/es/anchor/Anchor'
-import SVGIcon, { SVGIconTypes } from '../SvgIcon'
+import SVGIcon from '../SvgIcon'
 import MenuBar from '../MenuBar'
 import Sticky from '../Sticky'
 import { Link } from 'gatsby'
+import { Languages } from '@/utils/code'
 
 interface ArticleSidebarProps {
   date?: string
   tags?: Record<'name' | 'path', string>[]
   categories?: Record<'name' | 'path', string>[]
-  icon?: SVGIconTypes
+  icon?: Languages
   headings: AnchorLinkItemProps[]
   articles: Frontmatter[]
 }

@@ -1,40 +1,8 @@
 import gatsbyConfig from '@/../gatsby-config'
-
-export type SVGIconTypes =
-  | 'cli'
-  | 'discord'
-  | 'elitepvpers'
-  | 'gatsby'
-  | 'general'
-  | 'javascript'
-  | 'mdx'
-  | 'python'
-  | 'react'
-  | 'typescript'
-  | 'pause'
-  | 'play'
-  | 'close'
-  | 'check'
-  | 'info'
-  | 'warning'
-  | 'lightbulb'
-  | 'star'
-  | 'arrow-right'
-  | 'share'
-  | 'moon'
-  | 'sun'
-  | 'computer'
-  | 'refresh'
-  | 'export'
-  | 'backward'
-  | 'download'
-  | 'rust'
-  | 'grid'
-  | 'list'
-  | 'masonry'
+import { Languages } from '@/utils/code'
 
 type SVGIconProps = {
-  id: SVGIconTypes
+  id: Languages
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any
 }
@@ -44,7 +12,7 @@ type SVGIconProps = {
  */
 const SVGIcon = ({ id, ...props }: SVGIconProps) => (
   <svg aria-hidden focusable="false" {...props}>
-    <use href={`${gatsbyConfig.pathPrefix}/svg/icons.svg#${id}`} />
+    <use href={`${gatsbyConfig.pathPrefix}/svg/languages.svg#${id}`} />
   </svg>
 )
 export default SVGIcon

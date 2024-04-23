@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { Link } from 'gatsby'
 import SVGIcon from '@/components/SvgIcon'
+import ArrowRight from '@/assets/svg/arrow-right.svg'
 
 import { useStyles } from './style'
 
@@ -39,7 +40,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ data }) => {
                 <h5>{node.title}</h5>
                 <time>{node.date}</time>
               </div>
-              <SVGIcon id="arrow-right" height="1.25em" width="1.25em" />
+              <ArrowRight />
             </Link>
           ))}
         </div>

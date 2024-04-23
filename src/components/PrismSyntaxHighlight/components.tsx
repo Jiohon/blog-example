@@ -21,6 +21,13 @@ const components = {
 
     return <PreHighlight {...preProps!}></PreHighlight>
   },
+  a: (props) => {
+    return (
+      <a {...props} target="_blank">
+        {props.children}
+      </a>
+    )
+  },
   ...Headings,
   Alert: (props) => {
     const { children, message } = props

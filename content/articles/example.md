@@ -69,41 +69,17 @@ createPage({
 
 - 文章图标
 
-可选值为`SVGIconTypes`类型
+可选值为`Languages`类型
 
-```ts title="components/SvgIcon/index.tsx"
-export type SVGIconTypes =
-  | 'cli'
-  | 'discord'
-  | 'elitepvpers'
-  | 'gatsby'
-  | 'general'
+```ts title="src/utils/code.ts"
+export type Languages =
   | 'javascript'
-  | 'mdx'
-  | 'python'
-  | 'react'
   | 'typescript'
-  | 'pause'
-  | 'play'
-  | 'close'
-  | 'check'
-  | 'info'
-  | 'warning'
-  | 'lightbulb'
-  | 'star'
-  | 'arrow-right'
-  | 'share'
-  | 'moon'
-  | 'sun'
-  | 'computer'
-  | 'refresh'
-  | 'export'
-  | 'backward'
-  | 'download'
-  | 'rust'
-  | 'grid'
-  | 'list'
-  | 'masonry'
+  | 'jsx'
+  | 'tsx'
+  | 'md'
+  | 'mdx'
+  ···
 ```
 
 **categories**

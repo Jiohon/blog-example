@@ -28,9 +28,3 @@ export const replaceRenderer = ({ replaceBodyHTMLString, bodyComponent, setHeadC
   })
   replaceBodyHTMLString(html)
 }
-
-export const onRenderBody = ({ setHeadComponents }) => {
-  setHeadComponents([
-    // <link rel="preload" href={`${gatsbyConfig.pathPrefix}/svg/icons.svg`} as="image" type="image/svg+xml" />,
-  ])
-}
