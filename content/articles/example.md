@@ -17,7 +17,7 @@ published: true
 #### 前言
 
 - 本项目是一个基于`Gatsby`的个人博客模版，可以直接 clone 下来使用，也可以根据自己的需求进行二次开发。
-- 项目中使用了`antd`+`antd-style`进行样式的管理，`markdown`进行文章的编写，`gatsby-plugin-mdx`进行文章的解析。
+- 项目中使用了`antd`+`antd-style`进行样式的管理，`markdown`进行文章的编写，`gatsby-plugin-mdx` + `@mdx-js`进行文章的解析。
 - 项目中的文章都是以`markdown`的形式进行编写，可以直接在`content`目录下进行文章的编写。
 - `content\pages`目录下的文件是用来渲染页面的，可以根据自己的需求进行修改。
 

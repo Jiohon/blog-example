@@ -54,8 +54,8 @@ export const useSiteMetadata = (): UseSiteMetadataType => {
           logo
           siteUrl
           feedUrl
-          repository
           version
+          repository
         }
       }
     }

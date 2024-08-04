@@ -13,12 +13,11 @@ export const useStyles = createStyles(({ css, stylish, responsive: r, cx, token,
       backdrop-filter: saturate(50%) blur(4px);
       background-size: 3px 3px;
       background-image: radial-gradient(transparent 1px, ${token.colorBgLayout} 1px);
-
       ${r({
         mobile: css`
           height: ${token.headerHeightMobile}px;
         `,
-      })}
+      })};
     `
   ),
   headerContainer: cx(
@@ -31,6 +30,19 @@ export const useStyles = createStyles(({ css, stylish, responsive: r, cx, token,
       justify-content: space-between;
       height: 100%;
       color: ${token.colorTextSecondary};
+
+      .${prefixCls}-space {
+        column-gap: 3rem;
+
+        ${r({
+          laptop: css`
+            column-gap: 2.5rem;
+          `,
+          mobile: css`
+            column-gap: 2rem;
+          `,
+        })}
+      }
     `
   ),
 
@@ -39,8 +51,9 @@ export const useStyles = createStyles(({ css, stylish, responsive: r, cx, token,
     css`
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
+      justify-content: center;
+      min-width: 30px;
+      height: 100%;
       cursor: pointer;
       font-size: 1rem;
       font-weight: 600;
@@ -48,26 +61,25 @@ export const useStyles = createStyles(({ css, stylish, responsive: r, cx, token,
       padding: 0;
       border: none;
       border-radius: 0;
-      border-block-start: 2px solid transparent;
-      border-block-end: 2px solid transparent;
-      margin-inline-end: 1.2rem;
 
       &:hover {
         color: ${token.colorText};
         .logo {
-          transform: scale(1.1);
+          transform: scale(1.15);
         }
       }
 
       .logo {
-        line-height: 1.2;
-        font-size: 1.2rem;
-        font-weight: normal;
+        width: 100%;
+        height: 100%;
+        font-size: 1rem;
+        font-family: Coalhandluketrial;
+        font-weight: bold;
+        text-align: center;
         color: transparent;
         background: ${token.gradientLogo};
         background-clip: text;
         transition: all ${token.motionDurationSlow};
-        font-family: Pacifico;
       }
     `
   ),

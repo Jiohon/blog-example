@@ -19,7 +19,7 @@ const BriefHeader: React.FC<BriefHeaderProps> = ({ title, greeting, highlight, d
   return (
     <div className={styles.briefHeader}>
       {description && (
-        <div className={styles.Description}>
+        <div className={styles.description}>
           {highlight && <span>{highlight}</span>}
           {description}
         </div>

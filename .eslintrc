@@ -34,12 +34,12 @@
     "@typescript-eslint/no-non-null-assertion": 0,
     "jsx-a11y/accessible-emoji": 0,
     "jsx-a11y/iframe-has-title": 0,
-    "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/ban-ts-comment": 0,
-    "prefer-const": 1,
-    "import/no-unresolved": 1,
+    "import/no-unresolved": 0,
     "no-const-assign": 1,
+    "prefer-const": 1,
+    "@typescript-eslint/no-explicit-any": 0,
     "react/display-name": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
     "react/prop-types": 0,
     "react/react-in-jsx-scope": 0
     // "import/order":[]

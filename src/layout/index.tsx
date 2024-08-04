@@ -1,14 +1,19 @@
 import { App, message } from 'antd'
+import { graphql } from 'graphql'
 import { useEventListener } from 'ahooks'
-import { StoreUpdater } from '@/components/StoreUpdater'
-import { GlobalScopeStyle } from '@/customize-theme/globalScopeStyle'
+import SiteThemeProvider from '@/context/siteThemeProvider'
+import SiteStoreProvider from '@/context/siteStoreProvider'
 
 import { Footer } from './footer/index'
 import { Header } from './header/index'
 
 import { useStyles } from './style'
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+interface LayoutProps {
+  children: React.ReactNode
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { styles } = useStyles()
   const [messageApi, contextHolder] = message.useMessage()
 
@@ -21,19 +26,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   })
 
   return (
-    <>
-      <App>
-        {contextHolder}
-        <GlobalScopeStyle />
-        <StoreUpdater />
-
-        <div className={styles.layout}>
-          <Header />
-          <main className={styles.content}>{children}</main>
-          <Footer />
-        </div>
-      </App>
-    </>
+    <SiteStoreProvider>
+      <SiteThemeProvider>
+        <App>
+          {contextHolder}
+          <div className={styles.layout}>
+            <Header />
+            <main className={styles.content}>{children}</main>
+            <Footer />
+          </div>
+        </App>
+      </SiteThemeProvider>
+    </SiteStoreProvider>
   )
 }
 

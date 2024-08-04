@@ -1,41 +1,50 @@
-import { PreHighlightProps } from '@/components/PrismSyntaxHighlight/Code/PreHighlight'
+import { PreHighlightProps } from '@/components/MDXRenderer/Pre'
 
 export type Languages =
-  | 'bash'
-  | 'sh'
-  | 'shell'
-  | 'css'
   | 'javascript'
-  | 'js'
-  | 'jsx'
-  | 'diff'
-  | 'git'
-  | 'go'
-  | 'graphql'
-  | 'handlebars'
-  | 'json'
-  | 'less'
-  | 'markdown'
-  | 'mdx'
-  | 'python'
-  | 'py'
-  | 'sass'
-  | 'scss'
-  | 'tsx'
   | 'typescript'
-  | 'ts'
-  | 'wasm'
-  | 'yaml'
-  | 'rust'
-  | 'svelte'
+  | 'jsx'
+  | 'tsx'
+  | 'md'
+  | 'mdx'
   | 'html'
-  | 'text'
-  | 'swift'
   | 'kotlin'
-  | 'objectivec'
-  | 'js-extras'
-  | 'reason'
+  | 'swift'
+  | 'rust'
+  | 'go'
+  | 'java'
+  | 'powershell'
+  | 'css'
+  | 'less'
+  | 'sass'
+  | 'json'
+  | 'nginx'
+  | 'typescript-def'
+  | 'objective-c'
+  | 'c'
   | 'cpp'
+  | 'ruby'
+  | 'vue'
+  | 'angular'
+  | 'svelte'
+  | 'git'
+  | 'gitlab'
+  | 'npm'
+  | 'pnpm'
+  | 'yarn'
+  | 'webpack'
+  | 'vite'
+  | 'vitest'
+  | 'babel'
+  | 'prettier'
+  | 'stylelint'
+  | 'docker'
+  | 'next'
+  | 'netlify'
+  | 'gatsby'
+  | 'graphql'
+  | 'azure'
+  | 'coffee'
 
 export type GetLanguageInput = `language-${Languages}` | ''
 
@@ -54,7 +63,7 @@ export const OVERRIDES = {
 export type OverridesKeys = keyof typeof OVERRIDES
 
 /**
- * @description 语言映射 Value
+ * @description 语言映射
  */
 type OverridesValues = (typeof OVERRIDES)[OverridesKeys]
 
@@ -108,25 +117,7 @@ export interface PreNode {
 }
 
 /**
- * @description 将来自 "<pre>" MDX标记的道具转换为 “<Code />” 组件的形状
- * @example
- * preToCodeParams(props)
- */
-export const preToCodeParams = (preProps): PreHighlightProps => {
-  const { children, className = ``, ...props } = preProps.children.props
-
-  const { language } = getLanguage(className)
-
-  return {
-    children,
-    codeString: children.trim(),
-    language,
-    className,
-    ...props,
-  }
-}
-/**
- * @description 将来自 “<code>” MDX标记的道具转换为 “<Code />” 组件的形状
+ * @description 将来自“code”MDX标记的道具转换为“<Code />”组件的形状
  * @date 02/01/2024
  * @param {*} props
  * @example
@@ -140,6 +131,25 @@ export const toCodeParams = (codeProps): PreHighlightProps => {
   return {
     children,
     codeString: children,
+    language,
+    className,
+    ...props,
+  }
+}
+
+/**
+ * @description 将来自 "<pre>" MDX标记的道具转换为 “<Code />” 组件的形状
+ * @example
+ * preToCodeParams(props)
+ */
+export const ToPreParams = (preProps): PreHighlightProps => {
+  const { children, className = ``, ...props } = preProps.children.props
+
+  const { language } = getLanguage(className)
+
+  return {
+    children,
+    codeString: children.trim(),
     language,
     className,
     ...props,

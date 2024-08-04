@@ -16,7 +16,7 @@ export const useStyles = createStyles(({ css, stylish, cx, responsive: r, token,
     `
   ),
 
-  Description: cx(
+  description: cx(
     `${prefixCls}-briefHeader-description`,
     css`
       color: ${token.colorTextDescription};
@@ -25,10 +25,9 @@ export const useStyles = createStyles(({ css, stylish, cx, responsive: r, token,
       margin-block-end: 0.4rem;
 
       span {
-        color: ${token.colorPrimary};
+        color: ${token.colorPrimaryHover};
         font-family: Prisma;
-        font-size: 1.4rem;
-        margin-inline-end: 0.2rem;
+        font-size: 1.6rem;
       }
     `
   ),
@@ -52,10 +51,11 @@ export const useStyles = createStyles(({ css, stylish, cx, responsive: r, token,
       })}
     `
   ),
+
   greeting: cx(
     `${prefixCls}-briefHeader-greeting`,
     css`
-      font-family: Pacifico;
+      font-family: Coalhandluketrial;
       font-weight: normal;
       letter-spacing: 0.15rem;
       font-size: 2.2rem;

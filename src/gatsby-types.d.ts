@@ -1400,18 +1400,50 @@ type MdxFieldSelector = {
 
 type MdxFields = {
   readonly slug: Maybe<Scalars['String']>;
+  readonly timeToRead: Maybe<MdxFieldsTimeToRead>;
 };
 
 type MdxFieldsFieldSelector = {
   readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly timeToRead: InputMaybe<MdxFieldsTimeToReadFieldSelector>;
 };
 
 type MdxFieldsFilterInput = {
   readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly timeToRead: InputMaybe<MdxFieldsTimeToReadFilterInput>;
 };
 
 type MdxFieldsSortInput = {
   readonly slug: InputMaybe<SortOrderEnum>;
+  readonly timeToRead: InputMaybe<MdxFieldsTimeToReadSortInput>;
+};
+
+type MdxFieldsTimeToRead = {
+  readonly minutes: Maybe<Scalars['Float']>;
+  readonly text: Maybe<Scalars['String']>;
+  readonly time: Maybe<Scalars['Int']>;
+  readonly words: Maybe<Scalars['Int']>;
+};
+
+type MdxFieldsTimeToReadFieldSelector = {
+  readonly minutes: InputMaybe<FieldSelectorEnum>;
+  readonly text: InputMaybe<FieldSelectorEnum>;
+  readonly time: InputMaybe<FieldSelectorEnum>;
+  readonly words: InputMaybe<FieldSelectorEnum>;
+};
+
+type MdxFieldsTimeToReadFilterInput = {
+  readonly minutes: InputMaybe<FloatQueryOperatorInput>;
+  readonly text: InputMaybe<StringQueryOperatorInput>;
+  readonly time: InputMaybe<IntQueryOperatorInput>;
+  readonly words: InputMaybe<IntQueryOperatorInput>;
+};
+
+type MdxFieldsTimeToReadSortInput = {
+  readonly minutes: InputMaybe<SortOrderEnum>;
+  readonly text: InputMaybe<SortOrderEnum>;
+  readonly time: InputMaybe<SortOrderEnum>;
+  readonly words: InputMaybe<SortOrderEnum>;
 };
 
 type MdxFilterInput = {
@@ -2287,6 +2319,7 @@ type SiteMetadata = {
   readonly description: Scalars['String'];
   readonly feedUrl: Scalars['String'];
   readonly logo: Scalars['String'];
+  readonly repository: Scalars['String'];
   readonly siteUrl: Scalars['String'];
   readonly title: Scalars['String'];
   readonly version: Scalars['String'];
@@ -2297,6 +2330,7 @@ type SiteMetadataFieldSelector = {
   readonly description: InputMaybe<FieldSelectorEnum>;
   readonly feedUrl: InputMaybe<FieldSelectorEnum>;
   readonly logo: InputMaybe<FieldSelectorEnum>;
+  readonly repository: InputMaybe<FieldSelectorEnum>;
   readonly siteUrl: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly version: InputMaybe<FieldSelectorEnum>;
@@ -2307,6 +2341,7 @@ type SiteMetadataFilterInput = {
   readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly feedUrl: InputMaybe<StringQueryOperatorInput>;
   readonly logo: InputMaybe<StringQueryOperatorInput>;
+  readonly repository: InputMaybe<StringQueryOperatorInput>;
   readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly version: InputMaybe<StringQueryOperatorInput>;
@@ -2317,6 +2352,7 @@ type SiteMetadataSortInput = {
   readonly description: InputMaybe<SortOrderEnum>;
   readonly feedUrl: InputMaybe<SortOrderEnum>;
   readonly logo: InputMaybe<SortOrderEnum>;
+  readonly repository: InputMaybe<SortOrderEnum>;
   readonly siteUrl: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly version: InputMaybe<SortOrderEnum>;
@@ -2667,46 +2703,15 @@ type ArticlePageQueryVariables = Exact<{
 }>;
 
 
-type ArticlePageQuery = { readonly allArticle: { readonly nodes: ReadonlyArray<{ readonly frontmatter: { readonly title: string, readonly description: string | null, readonly date: string, readonly lastUpdated: string, readonly icon: string, readonly slug: string, readonly template: string, readonly tags: ReadonlyArray<string>, readonly categories: ReadonlyArray<string>, readonly published: boolean } }> }, readonly currentArticle: { readonly body: string | null, readonly tableOfContents: Record<string, unknown> | null, readonly newFrontmatter: { readonly date: string }, readonly frontmatter: { readonly title: string, readonly description: string | null, readonly date: string, readonly lastUpdated: string, readonly icon: string, readonly slug: string, readonly template: string, readonly tags: ReadonlyArray<string>, readonly categories: ReadonlyArray<string>, readonly published: boolean } } | null, readonly sitePage: { readonly component: string } | null };
+type ArticlePageQuery = { readonly allArticle: { readonly nodes: ReadonlyArray<{ readonly frontmatter: { readonly title: string, readonly description: string | null, readonly date: string, readonly lastUpdated: string, readonly icon: string, readonly slug: string, readonly template: string, readonly tags: ReadonlyArray<string>, readonly categories: ReadonlyArray<string>, readonly published: boolean } }> }, readonly currentArticle: { readonly tableOfContents: Record<string, unknown> | null, readonly newFrontmatter: { readonly date: string }, readonly frontmatter: { readonly title: string, readonly description: string | null, readonly date: string, readonly lastUpdated: string, readonly icon: string, readonly slug: string, readonly template: string, readonly tags: ReadonlyArray<string>, readonly categories: ReadonlyArray<string>, readonly published: boolean } } | null };
 
 type CategoryPageQueryVariables = Exact<{
   category: InputMaybe<Scalars['String']>;
+  published: InputMaybe<Scalars['Boolean']>;
 }>;
 
 
-type CategoryPageQuery = {
-  readonly categories: {
-    readonly totalCount: number
-    readonly nodes: ReadonlyArray<{
-      readonly frontmatter: {
-        readonly title: string
-        readonly description: string | null
-        readonly date: string
-        readonly lastUpdated: string
-        readonly icon: string
-        readonly slug: string
-        readonly template: string
-        readonly tags: ReadonlyArray<string>
-        readonly categories: ReadonlyArray<string>
-        readonly published: boolean
-      }
-    }>
-  }
-  readonly mdx: {
-    readonly frontmatter: {
-      readonly title: string
-      readonly description: string | null
-      readonly date: string
-      readonly lastUpdated: string
-      readonly icon: string
-      readonly slug: string
-      readonly template: string
-      readonly tags: ReadonlyArray<string>
-      readonly categories: ReadonlyArray<string>
-      readonly published: boolean
-    }
-  } | null
-}
+type CategoryPageQuery = { readonly articles: { readonly totalCount: number, readonly nodes: ReadonlyArray<{ readonly frontmatter: { readonly title: string, readonly description: string | null, readonly date: string, readonly lastUpdated: string, readonly icon: string, readonly slug: string, readonly template: string, readonly tags: ReadonlyArray<string>, readonly categories: ReadonlyArray<string>, readonly published: boolean } }> }, readonly tags: { readonly group: ReadonlyArray<{ readonly totalCount: number, readonly name: string | null }> }, readonly categories: { readonly group: ReadonlyArray<{ readonly totalCount: number, readonly name: string | null }> } };
 
 type FrontmatterFragmentFragment = { readonly frontmatter: { readonly title: string, readonly description: string | null, readonly date: string, readonly lastUpdated: string, readonly icon: string, readonly slug: string, readonly template: string, readonly tags: ReadonlyArray<string>, readonly categories: ReadonlyArray<string>, readonly published: boolean } };
 
@@ -2743,22 +2748,18 @@ type MeBySlugQueryVariables = Exact<{
 
 type MeBySlugQuery = { readonly me: { readonly frontmatter: { readonly title: string, readonly description: string | null, readonly date: string, readonly lastUpdated: string, readonly icon: string, readonly slug: string, readonly template: string, readonly tags: ReadonlyArray<string>, readonly categories: ReadonlyArray<string>, readonly published: boolean } } | null };
 
-type sitedataQueryVariables = Exact<{ [key: string]: never; }>;
+type siteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type sitedataQuery = { readonly site: { readonly siteMetadata: { readonly title: string, readonly description: string, readonly siteUrl: string, readonly author: string, readonly logo: string, readonly feedUrl: string } } | null };
+type siteMetadataQuery = { readonly site: { readonly siteMetadata: { readonly title: string, readonly description: string, readonly author: string, readonly logo: string, readonly siteUrl: string, readonly feedUrl: string, readonly version: string, readonly repository: string } } | null };
 
 type TagPageQueryVariables = Exact<{
   tag: InputMaybe<Scalars['String']>;
+  published: InputMaybe<Scalars['Boolean']>;
 }>;
 
 
-type TagPageQuery = { readonly tags: { readonly totalCount: number, readonly nodes: ReadonlyArray<{ readonly frontmatter: { readonly title: string, readonly description: string | null, readonly date: string, readonly lastUpdated: string, readonly icon: string, readonly slug: string, readonly template: string, readonly tags: ReadonlyArray<string>, readonly categories: ReadonlyArray<string>, readonly published: boolean } }> }, readonly mdx: { readonly frontmatter: { readonly title: string, readonly description: string | null, readonly date: string, readonly lastUpdated: string, readonly icon: string, readonly slug: string, readonly template: string, readonly tags: ReadonlyArray<string>, readonly categories: ReadonlyArray<string>, readonly published: boolean } } | null };
-
-type TaxonomyQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type TaxonomyQueryQuery = { readonly tags: { readonly group: ReadonlyArray<{ readonly totalCount: number, readonly name: string | null }> }, readonly categories: { readonly group: ReadonlyArray<{ readonly totalCount: number, readonly name: string | null }> } };
+type TagPageQuery = { readonly articles: { readonly totalCount: number, readonly nodes: ReadonlyArray<{ readonly frontmatter: { readonly title: string, readonly description: string | null, readonly date: string, readonly lastUpdated: string, readonly icon: string, readonly slug: string, readonly template: string, readonly tags: ReadonlyArray<string>, readonly categories: ReadonlyArray<string>, readonly published: boolean } }> }, readonly tags: { readonly group: ReadonlyArray<{ readonly totalCount: number, readonly name: string | null }> }, readonly categories: { readonly group: ReadonlyArray<{ readonly totalCount: number, readonly name: string | null }> } };
 
 type PagesDataQueryVariables = Exact<{ [key: string]: never; }>;
 

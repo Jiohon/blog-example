@@ -6,7 +6,7 @@ export const useStyles = createStyles(({ css, cx, token, responsive: r, stylish,
     justify-content: center;
     flex-wrap: wrap;
     position: sticky;
-    top: calc(${token.headerHeight}px + 30px);
+    top: calc(${token.headerHeight}px + 20px);
 
     ${r({
       mobile: css`

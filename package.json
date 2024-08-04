@@ -1,27 +1,59 @@
 {
-  "name": "blog-example",
+  "name": "blog",
+  "title": "John Blog",
   "description": "John's personal website.",
   "author": "John",
   "private": true,
-  "homepage": "https://jiohon.github.io/blog-example",
+  "homepage": "https://blog.hushes.cn",
   "version": "1.0.0",
   "license": "MIT",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "blog"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jiohon/blog-example"
+    "url": "https://github.com/npm/cli.git"
   },
   "scripts": {
     "dev": "gatsby clean && gatsby develop -H 0.0.0.0 -p 8008",
-    "build": "gatsby build  --prefix-paths",
-    "serve": "gatsby serve -H 0.0.0.0",
-    "deploy": "gatsby build --prefix-paths",
+    "build": "gatsby build --prefix-paths",
+    "serve": "gatsby build && gatsby serve -H 0.0.0.0 -o",
     "clean": "gatsby clean",
     "info": "gatsby info -C",
     "prepare": "husky install",
     "preinstall": "npx only-allow yarn"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog",
+      "types": {
+        "feat": {
+          "description": "新功能（feature）"
+        },
+        "fix": {
+          "description": "修补bug"
+        },
+        "style": {
+          "description": "格式（不影响代码运行的变动）"
+        },
+        "chore": {
+          "description": "构建过程或辅助工具的变动"
+        },
+        "typings": {
+          "description": "Typescript 类型错误"
+        },
+        "docs": {
+          "description": "文档（documentation）"
+        },
+        "refactor": {
+          "description": "重构（既不是新增功能，也不是修改bug的代码变动）"
+        },
+        "test": {
+          "description": "增加或修改测试用例"
+        }
+      }
+    }
   },
   "dependencies": {
     "gatsby": "^5.13.3",
@@ -31,12 +63,14 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@codesandbox/sandpack-react": "^2.14.4",
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "@giscus/react": "^3.0.0",
     "@graphql-eslint/eslint-plugin": "^3.20.1",
     "@mdx-js/react": "^3.0.1",
     "@react-spring/web": "^9.7.2",
+    "@stackblitz/sdk": "^1.9.0",
     "@types/chroma-js": "^2.4.0",
     "@types/node": "^20.12.2",
     "@types/qs": "^6.9.7",
@@ -48,6 +82,7 @@
     "antd": "^5.16.0",
     "antd-style": "3.6.0",
     "chroma-js": "^2.4.2",
+    "codesandbox": "^2.2.3",
     "copy-to-clipboard": "^3.3.3",
     "eslint": "^8.51.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -68,6 +103,7 @@
     "prettier": "^2.8.8",
     "prism-react-renderer": "^2.1.0",
     "prismjs": "^1.29.0",
+    "react-spring": "^9.7.4",
     "reading-time": "^1.5.0",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "1.0.0",

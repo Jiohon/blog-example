@@ -1,54 +1,51 @@
 import { Link } from 'gatsby'
 import { Space } from 'antd'
-import { useSiteMetadata } from '@/hooks'
-import ThemeSwitch from '@/components/ThemeSwitch'
+import { useTheme } from 'antd-style'
+import { animated } from '@react-spring/web'
 import config from '@/config'
+import ThemeSwitch from '@/components/ThemeSwitch'
+import { useAnimatedHeader } from '@/hooks/useAnimatedHeader'
 import { useStyles } from './style'
 
 export const Header = () => {
   const { styles } = useStyles()
-  const site = useSiteMetadata()
+  const token = useTheme()
 
-  const headerMenu = config.headers.menu
-  const headerSocial = config.headers.social
+  const { headerHeight, headerHeightMobile } = token
+
+  const [_styles] = useAnimatedHeader({
+    isHeader: true,
+    heights: [headerHeight, headerHeightMobile],
+  })
+
+  const headerMenu = config.headers.menu.filter((item) => item.show)
+  const headerSocial = config.headers.social.filter((item) => item.show)
 
   return (
     <>
-      <header className={styles.header}>
+      <animated.header className={styles.header} style={{ ..._styles }}>
         <div className={styles.headerContainer}>
-          <Space size="middle">
+          <Space size="large">
             <Link to="/" className={styles.navigationLink}>
-              <span className="logo">{site.author}</span>
+              <span className="logo">J</span>
             </Link>
 
-            {headerMenu.map(
-              (menu) =>
-                menu.show && (
-                  <Link className={styles.navigationLink} to={menu.url} key={menu.label}>
-                    <span className="label">{menu.label}</span>
-                  </Link>
-                )
-            )}
+            {headerMenu.map((item) => (
+              <Link className={styles.navigationLink} to={item.url} key={item.label}>
+                {item.label}
+              </Link>
+            ))}
 
-            {headerSocial.map(
-              (social) =>
-                social.show && (
-                  <a
-                    className={styles.navigationLink}
-                    key={social.label}
-                    href={social.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <social.icon />
-                  </a>
-                )
-            )}
+            {headerSocial.map((item) => (
+              <a className={styles.navigationLink} key={item.label} href={item.url} target="_blank" rel="noreferrer">
+                <item.icon />
+              </a>
+            ))}
           </Space>
 
           <ThemeSwitch />
         </div>
-      </header>
+      </animated.header>
     </>
   )
 }

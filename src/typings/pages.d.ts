@@ -8,7 +8,7 @@ type Frontmatter = {
   description: string
   date: string
   lastUpdated: string
-  icon: Languages
+  icon: any
   slug: string
   template: string
   tags: string[]
@@ -80,3 +80,10 @@ interface HeadNodeProps<DT = unknown, PT = unknown, CT = unknown, ST = unknown> 
   params: CT
   serverData: ST
 }
+
+interface GroupItem {
+  name: string
+  totalCount: number
+}
+
+type Group = Record<'group', GroupItem[]>

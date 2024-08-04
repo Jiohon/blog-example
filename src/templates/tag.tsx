@@ -8,7 +8,8 @@ import SEO from '@/components/SEO'
 import ArchiveSidebar from '@/components/Sidebar/ArchiveSidebar'
 import { simplifiedQueryData } from '@/utils/helpers'
 import { useStyles } from './styles/style'
-import { getPathname } from '@/utils/func'
+
+type TagTemplateProps = PageProps<allMdxNodesQuery<'articles'> & Record<'tags' | 'categories', Group>, { tag: string }>
 
 /**
  * @description 标签页面
@@ -16,11 +17,14 @@ import { getPathname } from '@/utils/func'
  * @export
  * @return {*}
  */
-const TagTemplate: React.FC<PageProps<allMdxNodesQuery<'tags'> & MdxNodesQuery, TagData>> = ({ data, pageContext }) => {
+const TagTemplate: React.FC<TagTemplateProps> = (props) => {
+  const { data, pageContext } = props
   const { styles } = useStyles()
 
-  const totalCount = data?.tags.totalCount
-  const nodes = data?.tags.nodes
+  const totalCount = data.articles.totalCount
+  const nodes = data.articles.nodes
+  const categories = data.categories.group
+  const tags = data.tags.group
   const message = totalCount === 1 ? ' Article tagged:' : ' Articles tagged:'
   const { tag } = pageContext
 
@@ -32,7 +36,7 @@ const TagTemplate: React.FC<PageProps<allMdxNodesQuery<'tags'> & MdxNodesQuery, 
         <BriefHeader highlight={totalCount} description={message} title={tag} />
         <ArticleList data={simplifiedArticles} />
       </div>
-      <ArchiveSidebar />
+      <ArchiveSidebar tags={tags} categories={categories} />
     </div>
   )
 }
@@ -51,15 +55,27 @@ export const Head: HeadFC<allMdxNodesQuery<'tags'> & MdxNodesQuery, TagData> = (
 }
 
 export const pageQuery = graphql`
-  query TagPage($tag: String) {
-    tags: allMdx(sort: { frontmatter: { date: DESC } }, filter: { frontmatter: { tags: { in: [$tag] } } }) {
+  query TagPage($tag: String, $published: Boolean) {
+    articles: allMdx(
+      sort: { frontmatter: { date: DESC } }
+      filter: { frontmatter: { tags: { in: [$tag] }, published: { eq: $published } } }
+    ) {
       totalCount
       nodes {
         ...FrontmatterFragment
       }
     }
-    mdx {
-      ...FrontmatterFragment
+    tags: allMdx(filter: { frontmatter: { published: { eq: $published } } }) {
+      group(field: { frontmatter: { tags: SELECT } }) {
+        name: fieldValue
+        totalCount
+      }
+    }
+    categories: allMdx(filter: { frontmatter: { published: { eq: $published } } }) {
+      group(field: { frontmatter: { categories: SELECT } }) {
+        name: fieldValue
+        totalCount
+      }
     }
   }
 `

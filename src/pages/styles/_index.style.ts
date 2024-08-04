@@ -8,40 +8,44 @@ export const useStyles = createStyles(({ css, stylish, cx, responsive: r, token,
     `
   ),
 
-  briefDescription: css`
-    -webkit-font-smoothing: antialiased;
-    margin-block-start: 2rem;
-    margin-block-end: 0;
-    font-size: 1rem;
-    line-height: 1.4;
-    color: ${token.colorTextSecondary};
+  briefDescription: cx(
+    `${prefixCls}-home-description`,
+    css`
+      -webkit-font-smoothing: antialiased;
+      margin-block-start: 2rem;
+      margin-block-end: 0;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: ${token.colorTextSecondary};
+      font-family: Coalhandluketrial;
 
-    ${r({
-      tablet: css`
-        font-size: 0.9rem;
-        margin-block-start: 2rem;
-      `,
-    })}
-  `,
+      ${r({
+        tablet: css`
+          font-size: 0.9rem;
+          margin-block-start: 2rem;
+        `,
+      })}
+    `
+  ),
 
   preview: cx(
     `${prefixCls}-home-preview`,
     css`
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2.4rem;
+      gap: 2.5rem;
 
       ${r({
+        laptop: css`
+          gap: 2.5rem;
+        `,
         tablet: css`
           grid-template-columns: repeat(2, 1fr);
-          gap: 1.9rem;
+          gap: 2rem;
         `,
-      })}
-
-      ${r({
         mobile: css`
           grid-template-columns: repeat(1, 1fr);
-          gap: 1.4rem;
+          gap: 1.5rem;
         `,
       })}
     `
@@ -50,24 +54,32 @@ export const useStyles = createStyles(({ css, stylish, cx, responsive: r, token,
   recentCard: cx(
     `${prefixCls}-recentCard`,
     css`
-      min-height: 9rem;
-      background-color: ${token.colorBgElevated};
-      box-shadow: none !important;
+      min-height: 10rem;
 
       .${prefixCls}-card-body {
         display: flex;
         flex-wrap: wrap;
         height: 100%;
       }
+
+      ${r({
+        laptop: css`
+          min-height: 9rem;
+        `,
+        tablet: css`
+          min-height: 8.5rem;
+        `,
+        mobile: css`
+          min-height: 8rem;
+        `,
+      })}
     `
   ),
 
   highlightCard: cx(
     `${prefixCls}-highlightCard`,
     css`
-      min-height: 9rem;
-      background-color: ${token.colorBgElevated};
-      box-shadow: none !important;
+      min-height: 10rem;
 
       .${prefixCls}-card-body {
         display: flex;
@@ -89,7 +101,7 @@ export const useStyles = createStyles(({ css, stylish, cx, responsive: r, token,
     `${prefixCls}-card-time`,
     css`
       display: block;
-      color: ${token['magenta-4']};
+      color: ${token['magenta-5']};
       font-size: 0.75rem;
 
       ${r({

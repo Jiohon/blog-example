@@ -1,11 +1,7 @@
 import React from 'react'
 import type { GatsbyBrowser } from 'gatsby'
-import SiteThemeProvider from './src/container/SiteThemeProvider'
+import Layout from './src/layout'
 
 export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({ element, props }) => {
-  return (
-    <>
-      <SiteThemeProvider {...props}>{element}</SiteThemeProvider>
-    </>
-  )
+  return <Layout {...props}>{element}</Layout>
 }

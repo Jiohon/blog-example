@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'antd-style'
 export const GlobalScopeStyle = createGlobalStyle`
   @font-face {
     font-family: 'SF Mono';
-    src: url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/SFMono/SFMono.woff2') format('woff2'),
-    url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/SFMono/SFMono.woff2') format('woff');
+    src: url('/fonts/SFMono/SFMono-Regular.woff2') format('woff2'),
+    url('/fonts/SFMono/SFMono-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -12,17 +12,17 @@ export const GlobalScopeStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Prisma';
-    src: url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Prisma/Prisma.woff2') format('woff2'),
-    url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Prisma/Prisma.woff2') format('woff');
+    src: url('/fonts/Prisma/Prisma.woff2') format('woff2'),
+    url('/fonts/Prisma/Prisma.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'Pacifico';
-    src: url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Pacifico/Pacifico.woff2') format('woff2'),
-    url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Pacifico/Pacifico.woff') format('woff');
+    font-family: 'Coalhandluketrial';
+    src: url('/fonts/Coalhandluketrial/Coalhandluketrial.woff2') format('woff2'),
+    url('/fonts/Coalhandluketrial/Coalhandluketrial.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -34,12 +34,15 @@ export const GlobalScopeStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-
   ::selection {
-    background: ${(p) => p.theme.colorPrimaryBorder};
+    background: rgba(125,138,255,.35);
   }
 
-  
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
 
   html {
     margin: 0;
@@ -47,7 +50,11 @@ export const GlobalScopeStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    font-family: ${(p) => p.theme.fontFamily};
+    font-family: ${(p) => {
+      console.log(p);
+      
+      return p.theme.fontFamily
+    }};
     font-size: ${(p) => p.theme.fontSize}px;
     font-weight: normal;
     font-kerning: normal;

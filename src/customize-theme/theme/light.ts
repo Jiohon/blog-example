@@ -20,6 +20,7 @@ export const lightTheme: ThemeConfig = {
   algorithm: (seedToken, mapToken) => {
     return {
       ...mapToken!,
+      // ...theme.defaultAlgorithm(seedToken),
 
       ...lightMode.tokens,
     }

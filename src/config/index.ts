@@ -1,42 +1,40 @@
 import { themes } from 'prism-react-renderer'
 import GithubSvg from '@/assets/svg/github.svg'
 
-import gatsby from '@/assets/image/gatsby.png'
-import github from '@/assets/image/github.png'
-import gatsbyConfig from '@/../gatsby-config'
+import GatsbyFooterSvg from '@/assets/svg/gatsby-footer.svg'
+import GithubFooterSvg from '@/assets/svg/github-footer.svg'
+
 import SiteConfig from './type'
 
 const siteConfig: SiteConfig = {
   comment: true,
   themes: {
-    brandColor: '#5566FF',
+    brandColor: '#5066FF',
     light: {
-      backgroundColor: '#f9f9fa',
-      cardBackgroundColor: '#ffffff',
+      backgroundColor: '#ffffff',
+      cardBackgroundColor: '#fafafb',
       codeHighlight: themes.oneLight,
-      commentTheme: 'light',
     },
     dark: {
-      backgroundColor: '#0c0c0e',
-      cardBackgroundColor: '#1e1e20',
+      backgroundColor: '#0f0f11',
+      cardBackgroundColor: '#1d1d1e',
       codeHighlight: themes.oneDark,
-      commentTheme: 'dark',
     },
   },
   headers: {
     menu: [
-      { url: '/me', label: 'Me', icon: '', show: true },
-      { url: '/archive', label: 'Archive', icon: '', show: true },
+      { url: '/about', label: 'About', show: true },
+      { url: '/archive', label: 'Archive', show: true },
     ],
-    social: [{ url: gatsbyConfig.siteMetadata.repository, label: 'GitHub', icon: GithubSvg, show: true }],
+    social: [{ url: 'https://github.com/jiohon', label: 'GitHub', icon: GithubSvg, show: true }],
   },
   footers: {
     menu: [
-      { url: 'https://www.gatsbyjs.org/', label: 'Gatsby', icon: gatsby, show: true },
-      { url: gatsbyConfig.siteMetadata.repository, label: 'GitHub', icon: github, show: true },
+      { url: 'https://www.gatsbyjs.org/', label: 'Gatsby', icon: GatsbyFooterSvg, show: true },
+      { url: 'https://github.com/jiohon', label: 'GitHub', icon: GithubFooterSvg, show: true },
     ],
     friend: [],
-    ICPRecord: '',
+    ICPRecord: '蜀ICP备2022009836号',
   },
 }
 

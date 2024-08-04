@@ -1,32 +1,40 @@
 import type { GatsbyConfig } from 'gatsby'
 import packageJson from './package.json'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeMetaAsAttributes from './plugins/rehype-meta-as-attributes'
-import { SiteMetadata } from './src/hooks'
+import { SiteMetadataType } from './src/hooks/useSiteMetadata'
+
+const dotenv = require('dotenv')
+
+dotenv.config({ path: [`.env`, `.env.${process.env.NODE_ENV}`] }).parsed
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 type GatsbyConfigType = GatsbyConfig & {
-  siteMetadata: SiteMetadata
+  siteMetadata: SiteMetadataType['site']['siteMetadata']
 }
 
-const siteMetadata: SiteMetadata = {
-  title: packageJson.name,
+const siteMetadata: SiteMetadataType['site']['siteMetadata'] = {
+  title: packageJson.title,
   author: packageJson.author,
   description: packageJson.description,
   siteUrl: packageJson.homepage,
   feedUrl: `${packageJson.homepage}/rss.xml`,
-  repository: packageJson.repository.url,
   logo: `${packageJson.homepage}/logo.png`,
   version: packageJson.version,
+  repository: packageJson.repository.url,
 }
 
 const config: GatsbyConfigType = {
   jsxRuntime: 'automatic',
   flags: {
-    DEV_SSR: false,
+    DEV_SSR: true,
   },
-  graphqlTypegen: false,
-  pathPrefix: '/blog-example',
+  graphqlTypegen: true,
+  pathPrefix: '/',
   siteMetadata,
   plugins: [
     // @see: https://www.gatsbyjs.com/plugins/gatsby-plugin-page-creator
@@ -150,14 +158,14 @@ const config: GatsbyConfigType = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
-        path: `./content/`,
+        path: `.${__dirname}/content/`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'assets',
-        path: `./src/assets/`,
+        path: `.${__dirname}/src/assets/`,
       },
     },
 

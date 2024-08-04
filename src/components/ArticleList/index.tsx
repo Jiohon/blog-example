@@ -40,6 +40,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ data }) => {
                 <h5>{node.title}</h5>
                 <time>{node.date}</time>
               </div>
+
               <ArrowRight />
             </Link>
           ))}

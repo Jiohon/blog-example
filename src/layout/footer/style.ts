@@ -46,17 +46,13 @@ export const useStyles = createStyles(({ css, stylish, responsive: r, cx, token,
     line-height: 1.2;
     padding-inline: 0.5rem;
 
-    .image {
-      display: inline-block;
-      max-height: 20px;
-      width: auto;
-      margin-block: 0.5rem;
-      margin-inline: 0.5rem;
-    }
-
     &:hover {
       text-decoration: underline;
       color: ${token.colorText} !important;
     }
+  `,
+
+  icon: css`
+    margin-inline-start: 0.5rem;
   `,
 }))

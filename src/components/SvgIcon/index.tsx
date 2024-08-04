@@ -1,18 +1,21 @@
-import gatsbyConfig from '@/../gatsby-config'
 import { Languages } from '@/utils/code'
 
 type SVGIconProps = {
   id: Languages
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [x: string]: any
+  width: string
+  height: string
+  style?: any
 }
 
+// https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/abap.svg
 /**
  * Using a SVG sprite for performance reasons
  */
-const SVGIcon = ({ id, ...props }: SVGIconProps) => (
-  <svg aria-hidden focusable="false" {...props}>
-    <use href={`${gatsbyConfig.pathPrefix}/svg/languages.svg#${id}`} />
-  </svg>
-)
+const SVGIcon = ({ id, style, ...props }: SVGIconProps) => {
+  return (
+    <svg aria-hidden focusable="false" {...props}>
+      <use href={`/svg/languages.svg#${id}`} />
+    </svg>
+  )
+}
 export default SVGIcon

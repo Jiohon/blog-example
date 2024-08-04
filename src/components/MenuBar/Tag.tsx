@@ -17,11 +17,13 @@ const Tag: FunctionComponent<TagProps> = ({ to, children }) => {
     return location.pathname
   }, [])
 
+  const checked = useMemo(() => to === pathname, [pathname])
+
   return (
     <>
       <AntdTag.CheckableTag
         className={cx(styles.tag)}
-        checked={to === pathname}
+        checked={checked}
         onClick={() => {
           navigate(to)
         }}

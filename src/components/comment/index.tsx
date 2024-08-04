@@ -1,12 +1,12 @@
 import Giscus from '@giscus/react'
 import config from '@/config'
-import { useThemeMode } from '@/hooks'
+import { useThemeMode } from '@/hooks/useThemeMode'
 import { useStyles } from './style'
 
 interface CommentProps {}
 
 const Comment: React.FC<CommentProps> = () => {
-  if (!config.comment) return
+  if (!config.comment) return <></>
   const { styles } = useStyles()
 
   const { appearance } = useThemeMode()

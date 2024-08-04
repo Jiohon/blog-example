@@ -11,15 +11,15 @@ declare module 'antd-style' {
  */
 export interface SiteToken {
   /**
-   * @title 头部高度
+   * @title 导航栏高度
    */
   headerHeight: number
   /**
-   * @title 头部高度移动端
+   * @title 导航栏高度 - 移动端
    */
   headerHeightMobile: number
   /**
-   * @title 内容最大宽度
+   * @title 页面内容最大宽度
    * @description 文本内容的最大宽度 1100
    */
   contentMaxWidth: number
@@ -64,6 +64,7 @@ export const createCustomToken: GetCustomToken<SiteToken> = ({ isDarkMode, token
 
     fontFamilyHighlighter: 'SF Mono',
 
+    colorHighlight: isDarkMode ? '#16182c' : '#ebf1ff',
     borderRadius: 8,
 
     tableHeaderBg: isDarkMode ? '#1d1d1d' : '#fafafa',
@@ -71,6 +72,6 @@ export const createCustomToken: GetCustomToken<SiteToken> = ({ isDarkMode, token
     highlightBackgroundColor: '',
     boxShadowFourth: isDarkMode
       ? ''
-      : '0 1px 4px 0 rgba(0, 0, 0, 0.04), 0 1px 8px -1px rgba(0, 0, 0, 0.03), 0 2px 6px 0 rgba(0, 0, 0, 0.03)',
+      : '0px 0.8px 2px rgba(0, 0, 0, 0.028),0px 2.7px 6.7px rgba(0, 0, 0, 0.03),0px 3px 15px rgba(0, 0, 0, 0.052)',
   }
 }

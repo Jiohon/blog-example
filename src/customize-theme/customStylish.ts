@@ -7,9 +7,8 @@ declare module 'antd-style' {
 
 export interface SiteStylish {
   container: string
-  wrapper: string
-  tagLink: string
   card: string
+  tagLink: string
 }
 
 export const getCustomStylish: GetCustomStylish<SiteStylish> = ({ css, token, isDarkMode }) => {
@@ -18,20 +17,11 @@ export const getCustomStylish: GetCustomStylish<SiteStylish> = ({ css, token, is
       display: flex;
       margin: 0 auto;
       max-width: ${token.contentMaxWidth}px;
-
-      @media screen and (max-width: ${token.screenXL}px) {
-        padding-inline: 1.3rem;
-      }
     `,
 
-    wrapper: css`
-      margin-block-start: 1.6rem;
-      margin-block-end: 3rem;
-
-      @media screen and (max-width: ${token.screenXL}) {
-        margin-block-start: 1.5rem;
-        margin-block-end: 1.5rem;
-      }
+    card: css`
+      width: 100%;
+      background-color: ${token.colorBgElevated};
     `,
 
     tagLink: css`
@@ -51,7 +41,7 @@ export const getCustomStylish: GetCustomStylish<SiteStylish> = ({ css, token, is
       text-align: center;
 
       &.active {
-        color: ${token.colorPrimary};
+        color: ${token.colorPrimaryActive};
         border-color: ${token.colorPrimaryBgHover};
         background-color: ${token.colorPrimaryBg};
       }
@@ -61,13 +51,6 @@ export const getCustomStylish: GetCustomStylish<SiteStylish> = ({ css, token, is
         border-color: ${token.colorPrimaryBgHover};
         background-color: ${token.colorPrimaryBg};
       }
-    `,
-
-    card: css`
-      width: 100%;
-      margin-block-start: 2rem;
-      background-color: ${token.colorBgElevated};
-      box-shadow: ${token.boxShadowTertiary} !important;
     `,
   }
 }

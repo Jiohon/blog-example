@@ -3,7 +3,6 @@ import type { HeadFC, PageProps } from 'gatsby'
 import { Link, graphql } from 'gatsby'
 import { useMemo } from 'react'
 
-import { useSiteMetadata } from '@/hooks'
 import BriefHeader from '@/components/BriefHeader'
 import Heading from '@/components/Heading'
 import SEO from '@/components/SEO'
@@ -19,7 +18,6 @@ import { useStyles } from './styles/_index.style'
  */
 const Home: React.FC<PageProps<allMdxNodesQuery<'latest' | 'Highlights'> & MdxNodesQuery>> = ({ data }) => {
   const { styles } = useStyles()
-  const site = useSiteMetadata()
 
   const latest = data.latest.nodes
   const Highlights = data.Highlights.nodes
@@ -29,21 +27,21 @@ const Home: React.FC<PageProps<allMdxNodesQuery<'latest' | 'Highlights'> & MdxNo
 
   return (
     <Space className={styles.container} direction="vertical" size="large">
-      <BriefHeader greeting={`Hey, I'm ${site.author}`}>
+      <BriefHeader greeting="Hey, I'm  &nbsp;Jhon">
         <p className={styles.briefDescription}>
-          𝑰 𝒉𝒐𝒑𝒆 𝒚𝒐𝒖 𝒍𝒊𝒗𝒆 𝒂 𝒍𝒊𝒇𝒆 𝒚𝒐𝒖‘𝒓𝒆 𝒑𝒓𝒐𝒖𝒅 𝒐𝒇. 𝑰𝒇 𝒚𝒐𝒖 𝒇𝒊𝒏𝒅 𝒕𝒉𝒂𝒕 𝒚𝒐𝒖’𝒓𝒆 𝒏𝒐𝒕, 𝑰 𝒉𝒐𝒑𝒆 𝒚𝒐𝒖 𝒉𝒂𝒗𝒆 𝒕𝒉𝒆 𝒔𝒕𝒓𝒆𝒏𝒈𝒕𝒉 𝒕𝒐 𝒔𝒕𝒂𝒓𝒕 𝒂𝒍𝒍
-          𝒐𝒗𝒆𝒓 𝒂𝒈𝒂𝒊𝒏.
+          I hope you live a life you're proud of. If you find that you're not, I hope you have the courage to start
+          over.
         </p>
         <p className={styles.briefDescription}>
-          我希望你过着自己引以为傲的生活。 如果你发现事实并非如此，我希望你有勇气重新开始。
+          「 我希望你过着自己引以为傲的生活。如果你发现事实并非如此，我希望你有勇气重新开始 」
         </p>
-        <p className={styles.briefDescription}>𝑯𝒂𝒗𝒆 𝒂 𝒈𝒐𝒐𝒅 𝒅𝒂𝒚... </p>
+        <p className={styles.briefDescription}>Have a good day. </p>
       </BriefHeader>
       <Heading title="最近内容" slug="/archive" />
       <div className={styles.preview}>
         {simplifiedLatest.map((item) => {
           return (
-            <Card className={styles.recentCard} key={item.slug} bordered={false}>
+            <Card className={styles.recentCard} key={item.slug} bordered>
               <time className={styles.time}>{item.date}</time>
               <Link className={styles.titleLink} to={item.slug}>
                 {item.title}
@@ -73,7 +71,7 @@ const Home: React.FC<PageProps<allMdxNodesQuery<'latest' | 'Highlights'> & MdxNo
           <div className={styles.preview}>
             {simplifiedHighlights.map((item) => {
               return (
-                <Card className={styles.highlightCard} key={`Highlight-${item.slug}`} bordered={false}>
+                <Card className={styles.highlightCard} key={`Highlight-${item.slug}`}>
                   <SVGIcon id={item.icon} width="5em" height="5em"></SVGIcon>
                   <div className="content">
                     <time className={styles.time}>{item.date}</time>
@@ -108,7 +106,7 @@ export const pageQuery = graphql`
     latest: allMdx(
       limit: 6
       sort: { frontmatter: { date: DESC } }
-      filter: { frontmatter: { template: { eq: "article" } } }
+      filter: { frontmatter: { template: { eq: "article" }, published: { eq: true } } }
     ) {
       nodes {
         ...FrontmatterFragment
@@ -117,15 +115,11 @@ export const pageQuery = graphql`
     Highlights: allMdx(
       limit: 6
       sort: { frontmatter: { date: DESC } }
-      filter: { frontmatter: { categories: { eq: "Highlight" } } }
+      filter: { frontmatter: { categories: { eq: "Highlight" }, published: { eq: true } } }
     ) {
       nodes {
         ...FrontmatterFragment
       }
-    }
-
-    mdx {
-      ...FrontmatterFragment
     }
   }
 `

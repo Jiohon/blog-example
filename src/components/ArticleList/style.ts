@@ -5,7 +5,7 @@ export const useStyles = createStyles(({ css, responsive: r, token }) => ({
     margin-block-end: 3rem;
   `,
   year: css`
-    color: ${token.colorPrimary};
+    color: ${token.colorPrimaryHover};
     padding-block-end: 0.8rem;
     border-block-end: 2px solid ${token.colorBorderSecondary};
     font-size: 1.8rem;

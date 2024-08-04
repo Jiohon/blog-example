@@ -1,5 +1,3 @@
-// import { ThemeAppearance } from '@/types';
-
 import { ThemeAppearance } from 'antd-style'
 
 export const matchBrowserPrefers = (mode: ThemeAppearance): MediaQueryList => {

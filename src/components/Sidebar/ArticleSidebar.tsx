@@ -1,19 +1,19 @@
 import { Anchor, Card } from 'antd'
+import { Link } from 'gatsby'
 import { useStyles } from './style'
 
 import { AnchorLinkItemProps } from 'antd/es/anchor/Anchor'
 import SVGIcon from '../SvgIcon'
 import MenuBar from '../MenuBar'
 import Sticky from '../Sticky'
-import { Link } from 'gatsby'
-import { Languages } from '@/utils/code'
+import { HeadingItem } from '@/utils/helpers'
 
 interface ArticleSidebarProps {
   date?: string
   tags?: Record<'name' | 'path', string>[]
   categories?: Record<'name' | 'path', string>[]
-  icon?: Languages
-  headings: AnchorLinkItemProps[]
+  icon?: any
+  headings: HeadingItem[]
   articles: Frontmatter[]
 }
 
@@ -29,7 +29,9 @@ const ArticleSidebar: React.FC<ArticleSidebarProps> = ({
   headings,
   articles,
 }) => {
-  const { styles } = useStyles()
+  const getLevel = () => headings.reduce((acc, cur) => (acc > cur.level ? acc : cur.level), 1)
+
+  const { styles } = useStyles(getLevel())
 
   const recentArticles = articles.slice(0, 6)
 
@@ -41,7 +43,7 @@ const ArticleSidebar: React.FC<ArticleSidebarProps> = ({
 
   return (
     <Sticky>
-      <SVGIcon id={icon!} width="8em" height="8em" style={{ margin: '0 auto', display: 'block' }}></SVGIcon>
+      <SVGIcon id={icon!} width="7em" height="7em"></SVGIcon>
       {/* <Card bordered={false} className={styles.card}>
           <h2>About me</h2>
         </Card> */}
