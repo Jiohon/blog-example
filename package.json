@@ -4,7 +4,7 @@
   "description": "John's personal website.",
   "author": "John",
   "private": true,
-  "homepage": "https://blog.hushes.cn",
+  "homepage": "https://jiohon.github.io/blog-example",
   "version": "1.0.0",
   "license": "MIT",
   "keywords": [
@@ -13,12 +13,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/npm/cli.git"
+    "url": "https://github.com/jiohon/blog-example"
   },
   "scripts": {
     "dev": "gatsby clean && gatsby develop -H 0.0.0.0 -p 8008",
-    "build": "gatsby build --prefix-paths",
-    "serve": "gatsby build && gatsby serve -H 0.0.0.0 -o",
+    "build": "gatsby build  --prefix-paths",
+    "serve": "gatsby serve -H 0.0.0.0",
+    "deploy": "gatsby build --prefix-paths",
     "clean": "gatsby clean",
     "info": "gatsby info -C",
     "prepare": "husky install",

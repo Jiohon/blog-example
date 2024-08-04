@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'antd-style'
 export const GlobalScopeStyle = createGlobalStyle`
   @font-face {
     font-family: 'SF Mono';
-    src: url('/fonts/SFMono/SFMono-Regular.woff2') format('woff2'),
-    url('/fonts/SFMono/SFMono-Regular.woff') format('woff');
+    src: url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/SFMono/SFMono.woff2') format('woff2'),
+    url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/SFMono/SFMono.woff2') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -12,8 +12,8 @@ export const GlobalScopeStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Prisma';
-    src: url('/fonts/Prisma/Prisma.woff2') format('woff2'),
-    url('/fonts/Prisma/Prisma.woff') format('woff');
+    src: url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Prisma/Prisma.woff2') format('woff2'),
+    url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Prisma/Prisma.woff2') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -21,8 +21,8 @@ export const GlobalScopeStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Coalhandluketrial';
-    src: url('/fonts/Coalhandluketrial/Coalhandluketrial.woff2') format('woff2'),
-    url('/fonts/Coalhandluketrial/Coalhandluketrial.woff') format('woff');
+    src: url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Coalhandluketrial/Coalhandluketrial.woff2') format('woff2'),
+    url('https://raw.githubusercontent.com/jiohon/blog-example/master/static/fonts/Coalhandluketrial/Coalhandluketrial.woff2') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -51,8 +51,8 @@ export const GlobalScopeStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
 
     font-family: ${(p) => {
-      console.log(p);
-      
+      console.log(p)
+
       return p.theme.fontFamily
     }};
     font-size: ${(p) => p.theme.fontSize}px;

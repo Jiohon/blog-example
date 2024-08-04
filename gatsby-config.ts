@@ -34,7 +34,7 @@ const config: GatsbyConfigType = {
     DEV_SSR: true,
   },
   graphqlTypegen: true,
-  pathPrefix: '/',
+  pathPrefix: '/blog-example',
   siteMetadata,
   plugins: [
     // @see: https://www.gatsbyjs.com/plugins/gatsby-plugin-page-creator
