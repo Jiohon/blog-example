@@ -50,11 +50,7 @@ export const GlobalScopeStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    font-family: ${(p) => {
-      console.log(p)
-
-      return p.theme.fontFamily
-    }};
+    font-family: ${(p) => p.theme.fontFamily};
     font-size: ${(p) => p.theme.fontSize}px;
     font-weight: normal;
     font-kerning: normal;
