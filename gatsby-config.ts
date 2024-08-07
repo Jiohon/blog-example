@@ -7,10 +7,6 @@ import rehypeSlug from 'rehype-slug'
 import rehypeMetaAsAttributes from './plugins/rehype-meta-as-attributes'
 import { SiteMetadataType } from './src/hooks/useSiteMetadata'
 
-const dotenv = require('dotenv')
-
-dotenv.config({ path: [`.env`, `.env.${process.env.NODE_ENV}`] }).parsed
-
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 type GatsbyConfigType = GatsbyConfig & {
